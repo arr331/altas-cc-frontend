@@ -1,0 +1,38 @@
+<div class="containe flex-box py-5">
+    <div class="card-content" *ngFor="let moto of listaMotos">
+        <div class="new-tag">- {{moto.descuento}} %</div>
+        <div style="width: 270px; padding: 0 25px; height: 225px;">
+            <img src="assets/images/{{moto.nombreImagen}}" class="new-img">
+        </div>
+        <h5 class="text-white">{{moto.nombreMoto}}</h5>
+        <p class="mb-0" style="color: antiquewhite;">{{moto.cc}} cc</p>
+        <span class="text-white me-3 fs-5">{{moto.precio * ((100 - moto.descuento) / 100)}}</span>
+        <span *ngIf="moto.descuento > 0" class="new-discount">{{moto.precio}}</span>
+
+        <div class="new-button"> Comprar</div>
+    </div>
+    <div class="card-content" *ngFor="let moto of listaMotos">
+        <div class="new-tag">- {{moto.descuento}} %</div>
+        <div style="width: 270px; padding: 0 25px; height: 225px;">
+            <img src="assets/images/{{moto.nombreImagen}}" class="new-img">
+        </div>
+        <h5 class="text-white">{{moto.nombreMoto}}</h5>
+        <p class="mb-0" style="color: antiquewhite;">{{moto.cc}} cc</p>
+        <span class="text-white me-3 fs-5">{{moto.precio * ((100 - moto.descuento) / 100)}}</span>
+        <span *ngIf="moto.descuento > 0" class="new-discount">{{moto.precio}}</span>
+
+        <div class="new-button"> Comprar</div>
+    </div>
+    <div class="card-content" *ngFor="let moto of listaMotos">
+        <div class="new-tag">- {{moto.descuento}} %</div>
+        <div style="width: 270px; padding: 0 25px; height: 225px;">
+            <img src="assets/images/{{moto.nombreImagen}}" class="new-img">
+        </div>
+        <h5 class="text-white">{{moto.nombreMoto}}</h5>
+        <p class="mb-0" style="color: antiquewhite;">{{moto.cc}} cc</p>
+        <span class="text-white me-3 fs-5">{{moto.precio * ((100 - moto.descuento) / 100)}}</span>
+        <span *ngIf="moto.descuento > 0" class="new-discount">{{moto.precio}}</span>
+
+        <div class="new-button"> Comprar</div>
+    </div>
+</div>

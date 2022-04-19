@@ -1,0 +1,65 @@
+// $color-boton: #067c08; // verde
+$color-boton: hsl(14, 91%, 54%); // naranja
+
+.flex-box {
+    display: flex;
+    gap: 4rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card-content {
+    position: relative;
+    // background: linear-gradient(136deg, #55335a17 0%, #0f011c 100%); // morado
+    background: linear-gradient(136deg, #5c496c17 0%, #4a4072 100%); // morado
+    // background: linear-gradient(320deg, #000000 40%, #bd0303 100%); // rojo
+    // background: linear-gradient(145deg, #5f0a0a, #710c0c); rojo fondo rojo // box-shadow:  8px 8px 25px #600a0a, -8px -8px 25px #740c0c;
+    width: 300px;
+    padding: 2rem 0;
+    border-radius: 0.75rem;
+    text-align: center;
+    overflow: hidden;
+}
+
+.card-content:hover .new-img {
+    transition: .5s;
+    transform: translateY(-.5rem);
+}
+
+.card-content:hover .new-button {
+    right: 0;
+}
+.new-img {
+    width: 95%;
+}
+.new-tag {
+    position: absolute;
+    top: 4%;
+    left: 5%;
+    background-color: #067c08;;
+    // background-color: $color-boton;
+    color: hsl(14, 4%, 100%);
+    font-size: .75rem;
+    padding: .25rem .5rem;
+    border-radius: .25rem;
+}
+
+.new-discount {
+    color: rgb(182, 3, 3);
+    font-size: 1.1rem;
+    text-decoration: line-through;
+    font-weight: 400;
+}
+
+.new-button {
+    background: $color-boton;
+    color: white;
+    display: inline-flex;
+    padding: .4rem;
+    border-radius: .5rem .2rem .75rem .2rem;
+    position: absolute;
+    bottom: 0;
+    right: -5rem;
+    cursor: pointer;
+    transition: .3s;
+}
