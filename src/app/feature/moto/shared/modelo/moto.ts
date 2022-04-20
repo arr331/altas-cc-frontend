@@ -7,4 +7,5 @@ export interface Moto {
     descuento: number;
     nombreImagen: string;
     nombreMoto: string;
+    cantidad: number;
 }

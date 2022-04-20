@@ -1,6 +1,13 @@
 <div class="containe flex-box py-5 background">
     <div class="card-content" *ngFor="let moto of listaMotos">
-        <div class="new-tag"  *ngIf="moto.descuento > 0">- {{moto.descuento}} %</div>
+
+        <ng-container *ngIf="moto.cantidad > 0; else agotado">
+            <div class="info" *ngIf="moto.descuento > 0;">- {{moto.descuento}} %</div>
+        </ng-container>
+        <ng-template #agotado>
+            <div class="info agotado">Agotada</div>
+        </ng-template>
+
         <div class="contenedor-imagen">
             <img src="assets/images/{{moto.nombreImagen}}" class="new-img">
         </div>
@@ -9,6 +16,8 @@
         <span class="text-white me-3 fs-5">{{moto.precio * ((100 - moto.descuento) / 100) | currency}}</span>
         <span *ngIf="moto.descuento > 0" class="new-discount">{{moto.precio | currency}}</span>
 
-        <div class="new-button"> Comprar</div>
+        <div *ngIf="moto.cantidad > 0" class="new-button" (click)="abrirCompra(moto)"> Comprar</div>
     </div>
 </div>
+
+<app-crear-compra [moto]="moto"></app-crear-compra>

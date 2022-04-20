@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Offcanvas } from '@shared/utlidades/offcanvas';
 import { Moto } from '../../shared/modelo/moto';
 import { MotoService } from '../../shared/service/moto.service';
 
@@ -9,6 +10,7 @@ import { MotoService } from '../../shared/service/moto.service';
 })
 export class MotoComponent implements OnInit {
   listaMotos: Moto[];
+  moto: Moto;
 
   constructor(private motoService: MotoService) { }
 
@@ -18,6 +20,11 @@ export class MotoComponent implements OnInit {
       console.log(respuesta);
       
     });
+  }
+
+  abrirCompra(moto: Moto): void {
+    this.moto = moto;
+    Offcanvas.show('offcanvasCompra');
   }
 
 }

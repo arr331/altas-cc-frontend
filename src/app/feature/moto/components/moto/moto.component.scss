@@ -1,5 +1,5 @@
-// $color-boton: #067c08; // verde
-$color-boton: hsl(14, 91%, 54%); // naranja
+$color-boton: #067c08; // verde
+// $color-boton: hsl(14, 91%, 54%); // naranja
 
 .flex-box {
     display: flex;
@@ -40,17 +40,18 @@ $color-boton: hsl(14, 91%, 54%); // naranja
     height: 225px;
 }
 
-.new-tag {
+.info {
     position: absolute;
     top: 4%;
     left: 5%;
     background-color: #067c08;
-    ;
-    // background-color: $color-boton;
     color: hsl(14, 4%, 100%);
     font-size: .75rem;
     padding: .25rem .5rem;
     border-radius: .25rem;
+    &.agotado {
+        background-color: rgb(182, 3, 3);
+    }
 }
 
 .new-discount {

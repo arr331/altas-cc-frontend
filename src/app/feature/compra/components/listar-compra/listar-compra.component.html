@@ -1,0 +1,28 @@
+<div class="container mt-3">
+    <h3>Listado de compras</h3>
+    <hr>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Moto</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Cédula</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Precio</th>
+                <th scope="col" class="text-center">Código</th>
+                <th scope="col" class="text-center">Estado</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let compra of listaCompras">
+                <td>{{compra.idMoto}}</td>
+                <td>{{compra.nombreCompleto}}</td>
+                <td>{{compra.cedula}}</td>
+                <td>{{compra.fecha}}</td>
+                <td>{{compra.valorTotal | currency}}</td>
+                <td class="text-center">{{compra.codigo}} %</td>
+                <td class="text-center">{{compra.estado === 'C' ? 'Completada' : 'Incompleta'}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

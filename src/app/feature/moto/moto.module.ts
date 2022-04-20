@@ -5,15 +5,14 @@ import { MotoRoutingModule } from './moto-routing.module';
 import { MotoComponent } from './components/moto/moto.component';
 import { SharedModule } from '@shared/shared.module';
 import { MotoService } from './shared/service/moto.service';
-import { ComprarMotoComponent } from './components/comprar-moto/comprar-moto.component';
 import { CrearMotoComponent } from './components/crear-moto/crear-moto.component';
 import { ListarMotoComponent } from './components/listar-moto/listar-moto.component';
+import { CrearCompraModule } from '../compra/components/crear-compra/crear-compra.module';
 
 
 @NgModule({
   declarations: [
     MotoComponent,
-    ComprarMotoComponent,
     CrearMotoComponent,
     ListarMotoComponent
   ],
@@ -21,6 +20,7 @@ import { ListarMotoComponent } from './components/listar-moto/listar-moto.compon
     CommonModule,
     MotoRoutingModule,
     SharedModule,
+    CrearCompraModule
   ],
   providers: [MotoService]
 })

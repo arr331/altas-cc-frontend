@@ -20,6 +20,11 @@
     font-weight: 500;
 }
 
+.floating.floating-sm label,
+.floating.floating-sm>span {
+    font-size: 13px;
+}
+
 .floating .form-control:placeholder-shown:not(:focus)::-webkit-input-placeholder {
     opacity: 0;
 }
@@ -28,6 +33,11 @@
     &:placeholder-shown:not(:focus)+* {
         opacity: 0.75;
         top: 12px;
+    }
+
+    &-sm:placeholder-shown:not(:focus)+* {
+        opacity: 0.75;
+        top: 8px;
     }
 }
 
@@ -38,4 +48,3 @@
 .form-control {
     border-radius: .6rem !important;
 }
-

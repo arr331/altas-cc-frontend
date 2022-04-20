@@ -21,7 +21,7 @@ export class CrearMotoComponent implements OnInit {
       descuento: [0, Validators.required],
       nombreImagen: ['.png', Validators.required],
       estado: ['A', Validators.required],
-      
+      cantidad: [undefined, Validators.required],      
     });
   }
 
