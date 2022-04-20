@@ -1,0 +1,41 @@
+.floating {
+    display: block;
+    position: relative;
+    margin: 1rem 0;
+}
+
+.floating label,
+.floating>span {
+    position: absolute;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    top: -10px;
+    left: 0.75rem;
+    z-index: 3;
+    line-height: 1;
+    padding: 0 5px;
+    background: white;
+    font-size: 15px;
+    color: rgb(102, 101, 101);
+    font-weight: 500;
+}
+
+.floating .form-control:placeholder-shown:not(:focus)::-webkit-input-placeholder {
+    opacity: 0;
+}
+
+.floating .form-control {
+    &:placeholder-shown:not(:focus)+* {
+        opacity: 0.75;
+        top: 12px;
+    }
+}
+
+.table> :not(:first-child) {
+    border-top: 2px solid rgb(168, 168, 168) !important;
+}
+
+.form-control {
+    border-radius: .6rem !important;
+}
+

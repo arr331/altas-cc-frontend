@@ -3,11 +3,11 @@ import { Moto } from '../../shared/modelo/moto';
 import { MotoService } from '../../shared/service/moto.service';
 
 @Component({
-  selector: 'app-moto',
-  templateUrl: './moto.component.html',
-  styleUrls: ['./moto.component.scss']
+  selector: 'app-listar-moto',
+  templateUrl: './listar-moto.component.html',
+  styleUrls: ['./listar-moto.component.scss']
 })
-export class MotoComponent implements OnInit {
+export class ListarMotoComponent implements OnInit {
   listaMotos: Moto[];
 
   constructor(private motoService: MotoService) { }
@@ -16,7 +16,6 @@ export class MotoComponent implements OnInit {
     this.motoService.traerTodas().subscribe(respuesta => {
       this.listaMotos = respuesta;
       console.log(respuesta);
-      
     });
   }
 

@@ -1,0 +1,60 @@
+<div class="container mt-3">
+    <h3>Crear moto</h3>
+    <hr>
+    <form [formGroup]="motoFormulario">
+        <div class="row">
+            <div class="col-5">
+                <label class="floating">
+                    <input type="text" class="form-control" placeholder="Ingresar el nombre de la moto" id="nombreMoto"
+                        formControlName="nombreMoto">
+                    <span>Nombre de la moto</span>
+                </label>
+            </div>
+            <div class="col-5">
+                <label class="floating">
+                    <input type="text" class="form-control" placeholder="Ingresar la marca de la moto" id="marca"
+                        formControlName="marca">
+                    <span>Marca</span>
+                </label>
+            </div>
+            <div class="col-2">
+                <label class="floating">
+                    <input type="number" class="form-control" placeholder="Cc de la moto" id="cc" formControlName="cc">
+                    <span>Cilindraje</span>
+                </label>
+            </div>
+            <div class="col-4">
+                <label class="floating">
+                    <input type="text" class="form-control" placeholder="Ingresar el nombre de la foto"
+                        id="nombreImagen" formControlName="nombreImagen">
+                    <span>Nombre imagen</span>
+                </label>
+            </div>
+            <div class="col-3">
+                <label class="floating">
+                    <input type="number" class="form-control" placeholder="Ingresar el precio en $USD" id="precio"
+                        formControlName="precio">
+                    <span>Precio</span>
+                </label>
+            </div>
+            <div class="col-3">
+                <label class="floating">
+                    <input type="number" class="form-control" placeholder="Ingresar el % del descuento" id="descuento"
+                        formControlName="descuento">
+                    <span>Descuento</span>
+                </label>
+            </div>
+            <div class="col-2">
+                <label class="floating">
+                    <select class="form-control" id="estado" formControlName="estado">
+                        <option value="A">Activo</option>
+                        <option value="I">Inactivo</option>
+                    </select>
+                    <span>Estado</span>
+                </label>
+            </div>
+        </div>
+    </form>
+    <hr>
+    <button type="button" class="btn btn-success col-3 float-end" (click)="guardar()">Guardar moto</button>
+</div>

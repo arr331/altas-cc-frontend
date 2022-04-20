@@ -29,14 +29,23 @@ $color-boton: hsl(14, 91%, 54%); // naranja
 .card-content:hover .new-button {
     right: 0;
 }
+
 .new-img {
     width: 95%;
 }
+
+.contenedor-imagen {
+    width: 270px;
+    padding: 0 25px;
+    height: 225px;
+}
+
 .new-tag {
     position: absolute;
     top: 4%;
     left: 5%;
-    background-color: #067c08;;
+    background-color: #067c08;
+    ;
     // background-color: $color-boton;
     color: hsl(14, 4%, 100%);
     font-size: .75rem;
@@ -62,4 +71,9 @@ $color-boton: hsl(14, 91%, 54%); // naranja
     right: -5rem;
     cursor: pointer;
     transition: .3s;
+}
+
+.background {
+    // background: #6a0b0b; //rojo
+    background: #000000; // para el morado
 }
