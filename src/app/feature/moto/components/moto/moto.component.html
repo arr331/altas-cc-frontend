@@ -1,23 +1,30 @@
-<div class="containe flex-box py-5 background">
-    <div class="card-content" *ngFor="let moto of listaMotos">
+<div class="background p-3">
+    <button type="button" class="btn btn-sm btn-primary float-end"><i class="fab fa-adn"></i> Tengo un código</button>
+    <h4 class="text-white">Catálogo de motos</h4>
+    <hr>
+    <div class="flex-box py-2">
+        <div class="card-content" *ngFor="let moto of listaMotos">
 
-        <ng-container *ngIf="moto.cantidad > 0; else agotado">
-            <div class="info" *ngIf="moto.descuento > 0;">- {{moto.descuento}} %</div>
-        </ng-container>
-        <ng-template #agotado>
-            <div class="info agotado">Agotada</div>
-        </ng-template>
+            <ng-container *ngIf="moto.cantidad > 0; else agotado">
+                <div class="info" *ngIf="moto.descuento > 0;">- {{moto.descuento}} %</div>
+            </ng-container>
+            <ng-template #agotado>
+                <div class="info agotado">Agotada</div>
+            </ng-template>
 
-        <div class="contenedor-imagen">
-            <img src="assets/images/{{moto.nombreImagen}}" class="new-img">
+            <div class="contenedor-imagen">
+                <img src="assets/images/{{moto.nombreImagen}}" class="new-img">
+            </div>
+            <h5 class="text-white">{{moto.marca}} {{moto.nombreMoto}}</h5>
+            <p class="mb-0" style="color: antiquewhite;">{{moto.cc}} cc</p>
+            <span class="text-white me-3 fs-5">{{moto.precio * ((100 - moto.descuento) / 100) | currency}}</span>
+            <span *ngIf="moto.descuento > 0" class="new-discount">{{moto.precio | currency}}</span>
+
+            <div *ngIf="moto.cantidad > 0" class="new-button" (click)="abrirCompra(moto)"> Comprar</div>
         </div>
-        <h5 class="text-white">{{moto.marca}} {{moto.nombreMoto}}</h5>
-        <p class="mb-0" style="color: antiquewhite;">{{moto.cc}} cc</p>
-        <span class="text-white me-3 fs-5">{{moto.precio * ((100 - moto.descuento) / 100) | currency}}</span>
-        <span *ngIf="moto.descuento > 0" class="new-discount">{{moto.precio | currency}}</span>
-
-        <div *ngIf="moto.cantidad > 0" class="new-button" (click)="abrirCompra(moto)"> Comprar</div>
     </div>
+
 </div>
+
 
 <app-crear-compra [moto]="moto"></app-crear-compra>
