@@ -1,6 +1,6 @@
+import { Cotizacion } from './cotizacion';
+
 export interface Compra {
-    id: number;
-    idMoto: number;
     cedula: string;
     nombreCompleto: string;
     fecha: Date;
@@ -8,4 +8,5 @@ export interface Compra {
     abono: number;
     codigo: string;
     estado: string;
+    cotizacion: Cotizacion
 }

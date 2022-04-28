@@ -34,17 +34,26 @@
       </div>
     </form>
 
-    <div class="alert alert-success" role="alert">
+    <div *ngIf="cotizacion" class="alert alert-success" role="alert">
       <div class="row">
         <div class="col-md-12">
-          <h6>Precio normal: <span class="float-end">{{moto.precio | currency}}</span></h6>
-          <h6>Descuento total: <span class="float-end">-{{esIgualAlTotal ? informacionPago.descuentoTotal : 0}}%</span>
-          </h6>
+          <h6>Precio normal: <span class="float-end">{{cotizacion.valorSinDescuento | currency}}</span></h6>
+          <ng-container *ngIf="esIgualAlTotal">
+            <h6 *ngIf="cotizacion.descuentoLunes > 0">Descuento lunes: <span
+                class="float-end">-{{cotizacion.descuentoLunes | currency}}%</span></h6>
+            <h6 *ngIf="cotizacion.descuentoFinDeSemana > 0">Descuento fin de semana: <span
+                class="float-end">-{{cotizacion.descuentoFinDeSemana | currency}}%</span></h6>
+            <h6 *ngIf="moto.descuento > 0">Descuento moto: <span class="float-end">-{{moto.descuento |
+                currency}}%</span>
+            </h6>
+            <h6 *ngIf="cotizacion.impuesto > 0">Impuesto: <span class="float-end">+{{cotizacion.impuesto |
+                currency}}%</span></h6>
+          </ng-container>
           <hr class="my-1">
           <h6>Valor final a pagar: <span class="float-end">{{valorFinalAPagar | currency}}</span></h6>
         </div>
       </div>
     </div>
-    <button type="button" class="btn btn-success col-12">¡Me la compro!</button>
+    <button type="button" class="btn btn-success col-12" (click)="guardar()">¡Me la compro!</button>
   </div>
 </div>

@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ManejadorError } from '@core/interceptor/manejador-error';
 import { Moto } from 'src/app/feature/moto/shared/modelo/moto';
-import { InformacionCompra } from '../../shared/modelo/informacion-compra';
+import { Cotizacion } from '../../shared/modelo/cotizacion';
 import { CompraService } from '../../shared/service/compra.service';
 
 @Component({
@@ -12,17 +13,18 @@ import { CompraService } from '../../shared/service/compra.service';
 export class CrearCompraComponent implements OnInit {
   @Input() moto: Moto;
   compraFormulario: FormGroup;
-  informacionPago: InformacionCompra;
-  esIgualAlTotal: boolean;
+  cotizacion: Cotizacion;
+  esIgualAlTotal: boolean = true;
   valorFinalAPagar: number;
+  codigo: string;
 
-  constructor(private formBuilder: FormBuilder, private compraService: CompraService) { }
+  constructor(private formBuilder: FormBuilder, private compraService: CompraService, protected manejadorError: ManejadorError ) { }
 
   ngOnChanges(): void {
-    console.log(this.moto);
     if (this.moto) {
-      this.traerInformacionDePago();
+      this.traerCotizacion();
     }
+    this.codigo = undefined;
   }
 
   ngOnInit(): void {
@@ -32,23 +34,28 @@ export class CrearCompraComponent implements OnInit {
     this.compraFormulario = this.formBuilder.group({
       cedula: [undefined, Validators.required],
       nombreCompleto: [undefined, Validators.required],
-      abono: [this.informacionPago.valorFinal, Validators.required],
+      abono: [this.cotizacion.valorFinal, Validators.required],
     });
     this.compraFormulario.get('abono').valueChanges.subscribe((abono: number) => {
-      this.esIgualAlTotal = abono == this.informacionPago.valorFinal;
-      this.valorFinalAPagar = this.esIgualAlTotal ? this.informacionPago.valorFinal : this.moto.precio;
+      this.esIgualAlTotal = abono == this.cotizacion.valorFinal;
+      this.valorFinalAPagar = this.esIgualAlTotal ? this.cotizacion.valorFinal : this.moto.precio;
     });
   }
 
   guardar(): void {
-    const compraAGuardar = this.compraService.crear(this.compraFormulario.value);
-    this.compraService.guardar(compraAGuardar);
+    const compraAGuardar = this.compraService.crear(this.compraFormulario.value, this.cotizacion);
+    this.compraService.guardar(compraAGuardar).then(respuesta => {
+      this.codigo = respuesta;
+      alert(respuesta);
+    }, error => {
+      this.manejadorError.handleError(error);
+      console.log(error.error?.mensaje);
+    });
   }
 
-  private async traerInformacionDePago(): Promise<void> {
-    // this.informacionPago = await this.compraService.traerInformacionDePago(this.moto.id);
-    this.informacionPago = { descuentoTotal: 11, valorFinal: 21050 };
-    this.valorFinalAPagar = this.informacionPago.valorFinal;
+  private async traerCotizacion(): Promise<void> {
+    this.cotizacion = (await this.compraService.traerInformacionDePago(this.moto.id)).valor;
+    this.valorFinalAPagar = this.cotizacion.valorFinal;
     this.construirFormulario();
   }
 

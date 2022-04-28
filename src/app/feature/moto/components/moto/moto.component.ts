@@ -18,7 +18,6 @@ export class MotoComponent implements OnInit {
     this.motoService.traerTodas().subscribe(respuesta => {
       this.listaMotos = respuesta;
       console.log(respuesta);
-      
     });
   }
 
