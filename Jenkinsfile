@@ -41,7 +41,7 @@ pipeline {
 			submoduleCfg: [], 
 			userRemoteConfigs: [[
 			credentialsId: 'GitHub_arr331', 
-			url:'https://github.com/arr331/altas-cc-fronted'
+			url:'https://github.com/arr331/altas-cc-frontend'
 			]]
 		])
 
