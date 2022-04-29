@@ -32,9 +32,7 @@ export class ActualizarCompraComponent implements OnInit {
   buscar(): void {
     if (this.codigoCompra.valid) {
       Loading.state.next(true);
-      this.compraService.traerPorCodigo(this.codigoCompra.value).then(respuesta => {
-        console.log(respuesta);
-        
+      this.compraService.traerPorCodigo(this.codigoCompra.value).subscribe(respuesta => {  
         this.compra = respuesta;
         this.moto = this.listaMotos.find(moto => moto.id == respuesta.idMoto);
         Loading.state.next(false);
@@ -48,7 +46,7 @@ export class ActualizarCompraComponent implements OnInit {
 
   completarCompra(): void {
     Loading.state.next(true);
-    this.compraService.actualizar(this.codigoCompra.value).then(() => {
+    this.compraService.actualizar(this.codigoCompra.value).subscribe(() => {
       Loading.state.next(false);
       this.resetear();
       Modal.hide('actualizarCompraModal');

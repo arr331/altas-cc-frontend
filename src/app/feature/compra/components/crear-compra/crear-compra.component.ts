@@ -44,7 +44,7 @@ export class CrearCompraComponent implements OnChanges {
     if (this.compraFormulario.valid) {
       Loading.state.next(true);
       const compraAGuardar = this.compraService.crear(this.compraFormulario.value, this.cotizacion);
-      this.compraService.guardar(compraAGuardar).then(respuesta => {
+      this.compraService.guardar(compraAGuardar).subscribe(respuesta => {
         Loading.state.next(false);
         Alertas.exito('¡Felicitaciones!', `Disfruta tu nueva moto. El código de la moto es: ${respuesta.valor}`);
       }, error => {
@@ -58,7 +58,7 @@ export class CrearCompraComponent implements OnChanges {
   }
 
   private traerCotizacion(): void {
-    this.compraService.traerInformacionDePago(this.moto.id).then(respuesta => {
+    this.compraService.traerInformacionDePago(this.moto.id).subscribe(respuesta => {
       this.cotizacion = respuesta.valor;
       this.valorFinalAPagar = this.cotizacion.valorFinal;
       this.construirFormulario();

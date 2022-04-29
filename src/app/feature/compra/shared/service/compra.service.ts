@@ -15,9 +15,9 @@ export class CompraService {
     return this.http.doGet<Compra[]>(`${environment.urlApi}compras`, this.http.optsName('consultar compras'));
   }
 
-  traerPorCodigo(codigo: string): Promise<Compra> {
+  traerPorCodigo(codigo: string): Observable<Compra> {
     return this.http.doGet<Compra>(`${environment.urlApi}compras/${codigo}`,
-     this.http.optsName('consultar compra por código')).toPromise();
+     this.http.optsName('consultar compra por código'));
   }
 
   crear(compraFormulario: any, cotizacion: Cotizacion): Compra {
@@ -27,19 +27,19 @@ export class CompraService {
     };
   }
 
-  guardar(compra: Compra): Promise<Respuesta<string>> {
+  guardar(compra: Compra): Observable<Respuesta<string>> {
     return this.http.doPost<Compra, Respuesta<string>>(`${environment.urlApi}/compras`, compra,
-      this.http.optsName('crear/actualizar compras')).toPromise();
+      this.http.optsName('crear/actualizar compras'));
   }
 
-  actualizar(codigo: string): Promise<void> {
+  actualizar(codigo: string): Observable<void> {
     return this.http.doPut<void>(`${environment.urlApi}/compras/actualizar/${codigo}`,
-      this.http.optsName('crear/actualizar compras')).toPromise();
+      this.http.optsName('crear/actualizar compras'));
   }
 
-  traerInformacionDePago(idMoto: number): Promise<Respuesta<Cotizacion>> {
+  traerInformacionDePago(idMoto: number): Observable<Respuesta<Cotizacion>> {
     return this.http.doGet<Respuesta<Cotizacion>>(`${environment.urlApi}compras/cotizacion/${idMoto}`,
-      this.http.optsName('consultar cotización')).toPromise();
+      this.http.optsName('consultar cotización'));
   }
 
 }
