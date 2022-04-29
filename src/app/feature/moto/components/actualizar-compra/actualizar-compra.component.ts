@@ -1,0 +1,67 @@
+import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { Alertas } from '@core/alertas/alertas';
+import { ManejadorError } from '@core/interceptor/manejador-error';
+import { Loading } from '@core/loading/loading';
+import { Modal } from '@shared/utlidades/modal';
+import { Compra } from 'src/app/feature/compra/shared/modelo/compra';
+import { CompraService } from 'src/app/feature/compra/shared/service/compra.service';
+import { Moto } from '../../shared/modelo/moto';
+import { MotoService } from '../../shared/service/moto.service';
+
+@Component({
+  selector: 'app-actualizar-compra',
+  templateUrl: './actualizar-compra.component.html',
+  styleUrls: ['./actualizar-compra.component.scss']
+})
+export class ActualizarCompraComponent implements OnInit {
+  codigoCompra = new FormControl('', Validators.required);
+  moto: Moto;
+  compra: Compra;
+  listaMotos: Moto[];
+
+  constructor(private compraService: CompraService, protected manejadorError: ManejadorError,
+    private motoService: MotoService) { }
+
+  ngOnInit(): void {
+    this.motoService.traerTodas().subscribe(respuesta => {
+      this.listaMotos = respuesta;
+    });
+  }
+
+  buscar(): void {
+    if (this.codigoCompra.valid) {
+      Loading.state.next(true);
+      this.compraService.traerPorCodigo(this.codigoCompra.value).then(respuesta => {
+        console.log(respuesta);
+        
+        this.compra = respuesta;
+        this.moto = this.listaMotos.find(moto => moto.id == respuesta.idMoto);
+        Loading.state.next(false);
+      }, error => {
+        Loading.state.next(false);
+        this.manejadorError.handleError(error);
+        Alertas.error('Atención', `${this.manejadorError.obtenerErrorHttpCode(error.status)} - ${error.error?.mensaje || 'Por favor intena de nuevo'}`)
+      });
+    }
+  }
+
+  completarCompra(): void {
+    Loading.state.next(true);
+    this.compraService.actualizar(this.codigoCompra.value).then(() => {
+      Loading.state.next(false);
+      this.resetear();
+      Modal.hide('actualizarCompraModal');
+      Alertas.exito('¡Felicitaciones!', `Disfruta tu nueva moto`);
+    }, error => {
+      Loading.state.next(false);
+      this.manejadorError.handleError(error);
+      Alertas.error('Atención', `${this.manejadorError.obtenerErrorHttpCode(error.status)} - ${error.error?.mensaje || 'Por favor intena de nuevo'}`)
+    });
+  }
+
+  resetear(): void {
+    this.compra = this.moto = undefined;
+  }
+
+}

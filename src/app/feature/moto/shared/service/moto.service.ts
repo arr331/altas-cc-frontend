@@ -19,13 +19,8 @@ export class MotoService {
     };
   }
 
-  guardar(moto: Moto): Observable<boolean> {
-    return this.http.doPost<Moto, boolean>(`${environment.urlApi}/motos`, moto,
+  guardar(moto: Moto): Observable<number> {
+    return this.http.doPost<Moto, number>(`${environment.urlApi}/motos`, moto,
       this.http.optsName('crear/actualizar motos'));
   }
-
-  // eliminar(producto: Producto) {
-  //   return this.http.doDelete<boolean>(`${environment.endpoint}/productos/${producto.id}`,
-  //                                                this.http.optsName('eliminar productos'));
-  // }
 }

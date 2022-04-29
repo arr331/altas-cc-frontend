@@ -1,5 +1,6 @@
 <div class="background p-3">
-    <button type="button" class="btn btn-sm btn-primary float-end"><i class="fab fa-adn"></i> Tengo un código</button>
+    <button type="button" class="btn btn-s btn-primary float-end" data-bs-toggle="modal"
+        data-bs-target="#actualizarCompraModal">Tengo un código</button>
     <h4 class="text-white">Catálogo de motos</h4>
     <hr>
     <div class="flex-box py-2">
@@ -27,4 +28,5 @@
 </div>
 
 
-<app-crear-compra [moto]="moto"></app-crear-compra> 
+<app-actualizar-compra></app-actualizar-compra>
+<app-crear-compra [moto]="moto"></app-crear-compra>

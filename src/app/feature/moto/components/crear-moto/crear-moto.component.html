@@ -1,52 +1,53 @@
 <div class="container mt-3">
     <h3>Crear moto</h3>
     <hr>
-    <form [formGroup]="motoFormulario">
+    <form [formGroup]="motoFormulario" class="was-validated">
         <div class="row">
             <div class="col-5">
                 <label class="floating">
                     <input type="text" class="form-control" placeholder="Ingresar el nombre de la moto" id="nombreMoto"
-                        formControlName="nombreMoto">
+                        formControlName="nombreMoto" required>
                     <span>Nombre de la moto</span>
                 </label>
             </div>
             <div class="col-5">
                 <label class="floating">
                     <input type="text" class="form-control" placeholder="Ingresar la marca de la moto" id="marca"
-                        formControlName="marca">
+                        formControlName="marca" required>
                     <span>Marca</span>
                 </label>
             </div>
             <div class="col-2">
                 <label class="floating">
-                    <input type="number" class="form-control" placeholder="Cc de la moto" id="cc" formControlName="cc">
+                    <input type="number" class="form-control" placeholder="Cc de la moto" id="cc" formControlName="cc"
+                        required>
                     <span>Cilindraje</span>
                 </label>
             </div>
             <div class="col-4">
                 <label class="floating">
                     <input type="text" class="form-control" placeholder="Ingresar el nombre de la foto"
-                        id="nombreImagen" formControlName="nombreImagen">
+                        id="nombreImagen" formControlName="nombreImagen" required>
                     <span>Nombre imagen</span>
                 </label>
             </div>
             <div class="col-3">
                 <label class="floating">
                     <input type="number" class="form-control" placeholder="Ingresar el precio en $USD" id="precio"
-                        formControlName="precio">
+                        formControlName="precio" required>
                     <span>Precio</span>
                 </label>
             </div>
             <div class="col-3">
                 <label class="floating">
                     <input type="number" class="form-control" placeholder="Ingresar el % del descuento" id="descuento"
-                        formControlName="descuento">
+                        formControlName="descuento" required>
                     <span>Descuento</span>
                 </label>
             </div>
             <div class="col-2">
                 <label class="floating">
-                    <select class="form-control" id="estado" formControlName="estado">
+                    <select class="form-control" id="estado" formControlName="estado" required>
                         <option value="A">Activo</option>
                         <option value="I">Inactivo</option>
                     </select>
@@ -55,8 +56,8 @@
             </div>
             <div class="col-4">
                 <label class="floating">
-                    <input type="number" class="form-control" placeholder="Ingresar la cantidad de unidades" id="cantidad"
-                        formControlName="cantidad">
+                    <input type="number" class="form-control" placeholder="Ingresar la cantidad de unidades"
+                        id="cantidad" formControlName="cantidad" required>
                     <span>Cantidad de unidades</span>
                 </label>
             </div>

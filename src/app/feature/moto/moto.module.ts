@@ -8,13 +8,17 @@ import { MotoService } from './shared/service/moto.service';
 import { CrearMotoComponent } from './components/crear-moto/crear-moto.component';
 import { ListarMotoComponent } from './components/listar-moto/listar-moto.component';
 import { CrearCompraModule } from '../compra/components/crear-compra/crear-compra.module';
+import { ActualizarCompraComponent } from './components/actualizar-compra/actualizar-compra.component';
+import { CompraService } from '../compra/shared/service/compra.service';
+import { ManejadorError } from '@core/interceptor/manejador-error';
 
 
 @NgModule({
   declarations: [
     MotoComponent,
     CrearMotoComponent,
-    ListarMotoComponent
+    ListarMotoComponent,
+    ActualizarCompraComponent
   ],
   imports: [
     CommonModule,
@@ -22,6 +26,6 @@ import { CrearCompraModule } from '../compra/components/crear-compra/crear-compr
     SharedModule,
     CrearCompraModule
   ],
-  providers: [MotoService]
+  providers: [MotoService, CompraService, ManejadorError]
 })
 export class MotoModule { }

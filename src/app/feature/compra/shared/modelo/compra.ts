@@ -1,6 +1,7 @@
 import { Cotizacion } from './cotizacion';
 
 export interface Compra {
+    idMoto: number;
     cedula: string;
     nombreCompleto: string;
     fecha: Date;
