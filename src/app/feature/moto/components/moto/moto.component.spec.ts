@@ -1,4 +1,9 @@
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpService } from '@core/services/http.service';
+import { MotoService } from '../../shared/service/moto.service';
 
 import { MotoComponent } from './moto.component';
 
@@ -8,7 +13,14 @@ describe('MotoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MotoComponent ]
+      declarations: [ MotoComponent ],
+      imports: [
+        CommonModule,
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule
+      ],
+      providers: [MotoService, HttpService]
     })
     .compileComponents();
   });

@@ -11,6 +11,9 @@ import { CrearCompraModule } from '../compra/components/crear-compra/crear-compr
 import { ActualizarCompraComponent } from './components/actualizar-compra/actualizar-compra.component';
 import { CompraService } from '../compra/shared/service/compra.service';
 import { ManejadorError } from '@core/interceptor/manejador-error';
+import { HttpClient } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpService } from '@core/services/http.service';
 
 
 @NgModule({
@@ -24,8 +27,9 @@ import { ManejadorError } from '@core/interceptor/manejador-error';
     CommonModule,
     MotoRoutingModule,
     SharedModule,
-    CrearCompraModule
+    CrearCompraModule,
+    ReactiveFormsModule
   ],
-  providers: [MotoService, CompraService, ManejadorError]
+  providers: [MotoService, CompraService, ManejadorError, HttpClient, HttpService]
 })
 export class MotoModule { }

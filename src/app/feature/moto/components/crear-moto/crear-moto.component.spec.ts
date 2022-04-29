@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ManejadorError } from '@core/interceptor/manejador-error';
+import { HttpService } from '@core/services/http.service';
 import { of } from 'rxjs';
 import { MotoService } from '../../shared/service/moto.service';
 
@@ -22,7 +24,7 @@ describe('CrearMotoComponent', () => {
         FormsModule,
         ReactiveFormsModule
       ],
-      providers: [MotoService]
+      providers: [MotoService, HttpService, ManejadorError]
     })
       .compileComponents();
   });

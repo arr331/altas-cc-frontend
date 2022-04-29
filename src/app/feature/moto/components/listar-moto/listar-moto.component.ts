@@ -15,7 +15,6 @@ export class ListarMotoComponent implements OnInit {
   ngOnInit(): void {
     this.motoService.traerTodas().subscribe(respuesta => {
       this.listaMotos = respuesta;
-      console.log(respuesta);
     });
   }
 
