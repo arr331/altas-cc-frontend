@@ -15,8 +15,8 @@ describe('CrearMotoComponent', () => {
   let motoService: MotoService;
   let spyCrear: jasmine.Spy;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(() => {
+    TestBed.configureTestingModule({
       declarations: [CrearMotoComponent],
       imports: [
         CommonModule,
@@ -27,9 +27,6 @@ describe('CrearMotoComponent', () => {
       providers: [MotoService, HttpService, ManejadorError]
     })
       .compileComponents();
-  });
-
-  beforeEach(() => {
     fixture = TestBed.createComponent(CrearMotoComponent);
     component = fixture.componentInstance;
     motoService = TestBed.inject(MotoService);

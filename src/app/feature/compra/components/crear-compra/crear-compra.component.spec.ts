@@ -4,6 +4,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ManejadorError } from '@core/interceptor/manejador-error';
 import { HttpService } from '@core/services/http.service';
+import { ListarComprasMock } from '@shared/mocks/listar-compras.mock';
+import { ListarMotosMock } from '@shared/mocks/listar-motos.mock';
 import { of } from 'rxjs';
 import { CompraService } from '../../shared/service/compra.service';
 
@@ -15,8 +17,8 @@ describe('CrearCompraComponent', () => {
   let compraService: CompraService;
   let spyCrear: jasmine.Spy;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(() => {
+    TestBed.configureTestingModule({
       declarations: [CrearCompraComponent],
       imports: [
         CommonModule,
@@ -27,15 +29,16 @@ describe('CrearCompraComponent', () => {
       providers: [CompraService, HttpService, ManejadorError]
     })
       .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(CrearCompraComponent);
     component = fixture.componentInstance;
+    component.moto = ListarMotosMock.default[1];
     compraService = TestBed.inject(CompraService);
+    spyOn(compraService, 'traerInformacionDePago').and.returnValue(of({valor:ListarComprasMock.cotizacion}))
     spyCrear = spyOn(compraService, 'guardar').and.returnValue(
       of({ valor: '2022-7' })
     );
+    
     fixture.detectChanges();
   });
 
@@ -62,6 +65,17 @@ describe('CrearCompraComponent', () => {
       descuentoLunes: 0.0,
       descuentoFinDeSemana: 0.0
     };
+    component.moto = {
+      id: 3,
+      precio: 21000.0,
+      cc: 999,
+      marca: 'HONDA',
+      estado: 'I',
+      descuento: 0.0,
+      nombreImagen: 'cbr.png',
+      nombreMoto: 'CBR 1000RR',
+      cantidad: 1
+    }
     component.construirFormulario();
     expect(component.compraFormulario.valid).toBeFalse();
   });

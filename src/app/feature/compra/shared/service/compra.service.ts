@@ -28,12 +28,12 @@ export class CompraService {
   }
 
   guardar(compra: Compra): Observable<Respuesta<string>> {
-    return this.http.doPost<Compra, Respuesta<string>>(`${environment.urlApi}/compras`, compra,
+    return this.http.doPost<Compra, Respuesta<string>>(`${environment.urlApi}compras`, compra,
       this.http.optsName('crear/actualizar compras'));
   }
 
   actualizar(codigo: string): Observable<void> {
-    return this.http.doPut<void>(`${environment.urlApi}/compras/actualizar/${codigo}`,
+    return this.http.doPut<void>(`${environment.urlApi}compras/actualizar/${codigo}`,
       this.http.optsName('crear/actualizar compras'));
   }
 

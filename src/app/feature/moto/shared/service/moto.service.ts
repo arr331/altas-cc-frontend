@@ -20,7 +20,7 @@ export class MotoService {
   }
 
   guardar(moto: Moto): Observable<number> {
-    return this.http.doPost<Moto, number>(`${environment.urlApi}/motos`, moto,
+    return this.http.doPost<Moto, number>(`${environment.urlApi}motos`, moto,
       this.http.optsName('crear/actualizar motos'));
   }
 }

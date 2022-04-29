@@ -15,7 +15,6 @@ export class ListarCompraComponent implements OnInit {
   ngOnInit(): void {
     this.compraService.traerTodas().subscribe(respuesta => {
       this.listaCompras = respuesta;
-      console.log(respuesta);
     });
   }
 }

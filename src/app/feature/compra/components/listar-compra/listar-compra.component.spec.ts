@@ -3,6 +3,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpService } from '@core/services/http.service';
+import { ListarComprasMock } from '@shared/mocks/listar-compras.mock';
+import { of } from 'rxjs';
 import { CompraService } from '../../shared/service/compra.service';
 
 import { ListarCompraComponent } from './listar-compra.component';
@@ -10,9 +12,10 @@ import { ListarCompraComponent } from './listar-compra.component';
 describe('ListarCompraComponent', () => {
   let component: ListarCompraComponent;
   let fixture: ComponentFixture<ListarCompraComponent>;
+  let compraService: CompraService;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(() => {
+    TestBed.configureTestingModule({
       declarations: [ ListarCompraComponent ],
       imports: [
         CommonModule,
@@ -23,11 +26,10 @@ describe('ListarCompraComponent', () => {
       providers: [CompraService, HttpService]
     })
     .compileComponents();
-  });
-
-  beforeEach(() => {
     fixture = TestBed.createComponent(ListarCompraComponent);
     component = fixture.componentInstance;
+    compraService = TestBed.inject(CompraService);
+    spyOn(compraService, 'traerTodas').and.returnValue(of(ListarComprasMock.default))
     fixture.detectChanges();
   });
 

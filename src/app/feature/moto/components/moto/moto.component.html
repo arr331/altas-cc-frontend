@@ -3,7 +3,7 @@
         data-bs-target="#actualizarCompraModal">Tengo un código</button>
     <h4 class="text-white">Catálogo de motos</h4>
     <hr>
-    <div class="flex-box py-2">
+    <div class="flex-box py-2" *ngIf="listaMotos">
         <div class="card-content" *ngFor="let moto of listaMotos">
 
             <ng-container *ngIf="moto.cantidad > 0; else agotado">
