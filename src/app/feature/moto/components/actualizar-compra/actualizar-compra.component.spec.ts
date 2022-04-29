@@ -4,6 +4,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ManejadorError } from '@core/interceptor/manejador-error';
 import { HttpService } from '@core/services/http.service';
+import { Modal } from '@shared/utlidades/modal';
 import { of } from 'rxjs';
 import { CompraService } from 'src/app/feature/compra/shared/service/compra.service';
 import { MotoService } from '../../shared/service/moto.service';
@@ -37,13 +38,10 @@ describe('ActualizarCompraComponent', () => {
     component = fixture.componentInstance;
     compraService = TestBed.inject(CompraService);
     motoService = TestBed.inject(MotoService);
-    spyTraerPorCodigo = spyOn(compraService, 'traerPorCodigo').and.returnValue(
-      of(null)
-    );
-    spyActualizar = spyOn(compraService, 'actualizar').and.returnValue(
-      of(null)
-    );
-    spyOn(motoService, 'traerTodas').and.returnValue(of(null));
+    spyTraerPorCodigo = spyOn(compraService, 'traerPorCodigo').and.returnValue(of(null));
+    spyActualizar = spyOn(compraService, 'actualizar').and.returnValue(of(null));
+    spyOn(motoService, 'traerTodas').and.returnValue(of([]));
+    spyOn(Modal, 'hide').and.returnValue();
     fixture.detectChanges();
   });
 
@@ -58,6 +56,7 @@ describe('ActualizarCompraComponent', () => {
   it('Debería encontrar una compra', () => {
     component.codigoCompra.setValue('2022-3');   
     component.buscar();
+    expect(component.compra).toBeNull();
     expect(spyTraerPorCodigo).toHaveBeenCalledOnceWith(component.codigoCompra.value);
   });
 
