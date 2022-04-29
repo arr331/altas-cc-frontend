@@ -4,10 +4,10 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ManejadorError } from '@core/interceptor/manejador-error';
 import { HttpService } from '@core/services/http.service';
+import { ListarComprasMock } from '@shared/mocks/listar-compras.mock';
 import { ListarMotosMock } from '@shared/mocks/listar-motos.mock';
 import { Modal } from '@shared/utlidades/modal';
 import { of } from 'rxjs';
-import { Compra } from 'src/app/feature/compra/shared/modelo/compra';
 import { CompraService } from 'src/app/feature/compra/shared/service/compra.service';
 import { MotoService } from '../../shared/service/moto.service';
 
@@ -21,16 +21,7 @@ describe('ActualizarCompraComponent', () => {
   let spyTraerPorCodigo: jasmine.Spy;
   let spyActualizar: jasmine.Spy;
   
-  const compra: Compra = {
-    "idMoto": 2,
-    "cedula": "39189986",
-    "nombreCompleto": "Beatriz Osorio",
-    "fecha": new Date(),
-    "valorTotal": 21000.0,
-    "abono": 10500.0,
-    "codigo": "2022-3",
-    "estado": "I"
-  }
+  const compra = ListarComprasMock.default[2];
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -71,7 +62,7 @@ describe('ActualizarCompraComponent', () => {
     component.codigoCompra.setValue('2022-3');   
     component.buscar();
     expect(component.compra).toEqual(compra);
-    expect(component.moto).toEqual(ListarMotosMock.default[1]);
+    expect(component.moto).toEqual(ListarMotosMock.default[2]);
     expect(spyTraerPorCodigo).toHaveBeenCalledOnceWith(component.codigoCompra.value);
   });
 
@@ -79,5 +70,11 @@ describe('ActualizarCompraComponent', () => {
     component.codigoCompra.setValue('2022-3');
     component.completarCompra();
     expect(spyActualizar).toHaveBeenCalled();
+  });
+
+  it('Debería resetear las variables', () => {
+    component.resetear();
+    expect(component.compra).toBeUndefined();
+    expect(component.moto).toBeUndefined();
   });
 });

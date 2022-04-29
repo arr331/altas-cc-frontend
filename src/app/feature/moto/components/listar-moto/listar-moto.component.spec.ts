@@ -36,4 +36,10 @@ describe('ListarMotoComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Debería traer listado de motos', () => {
+    component.ngOnInit();
+    expect(component.listaMotos).toBeTruthy();
+    expect(component.listaMotos.length).toEqual(3);
+  });
 });

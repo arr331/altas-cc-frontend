@@ -30,9 +30,7 @@ describe('CrearMotoComponent', () => {
     fixture = TestBed.createComponent(CrearMotoComponent);
     component = fixture.componentInstance;
     motoService = TestBed.inject(MotoService);
-    spyCrear = spyOn(motoService, 'guardar').and.returnValue(
-      of(1) // void
-    );
+    spyCrear = spyOn(motoService, 'guardar').and.returnValue(of(1));
 
     fixture.detectChanges();
   });
