@@ -79,8 +79,8 @@ pipeline {
 
     stage('Build') {
       steps {
-		echo "------------>Build<------------"
-		sh 'npm run build'
+		    echo "------------>Build<------------"
+		    sh 'npm run build'
       }
     }
 

@@ -16,13 +16,13 @@
                     </div>
                     <div class="col-sm-4">
                         <button type="button" class="btn btn-sm col-12 btn-success" [disabled]="codigoCompra.invalid"
-                            (click)="buscar()"><i class="fas fa-search"></i> Buscar</button>
+                            (click)="buscar()"><span class="fas fa-search"></span> Buscar</button>
                     </div>
                 </div>
                 <ng-template #actualizar>
                     <h4 class="text-center">{{moto.marca}} {{moto.nombreMoto}}</h4>
                     <div class="text-center mb-3">
-                        <img src="assets/images/{{moto.nombreImagen}}" width="40%">
+                        <img src="assets/images/{{moto.nombreImagen}}" alt="Imagen moto" width="40%">
                     </div>
                     <div class="row" *ngIf="compra.estado === 'I'; else completada">
                         <div class="col">
@@ -50,7 +50,7 @@
                     class="btn btn-sm btn-success float-end px-4" (click)="resetear()"> <i
                         class="fas fa-check-circle"></i> Buscar otra</button>
                 <button type="button" class="btn btn-sm btn-secondary px-4" data-bs-dismiss="modal"
-                    (click)="resetear()"><i class="fas fa-times-circle"></i> Cerrar</button>
+                    (click)="resetear()"><span class="fas fa-times-circle"></span> Cerrar</button>
             </div>
         </div>
     </div>
