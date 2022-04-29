@@ -26,7 +26,7 @@ describe('MotoService', () => {
 
   it('Debería listar las motos', () => {
     service.traerTodas().subscribe(compras => {
-      expect(compras.length).toBe(2);
+      expect(compras.length).toBe(3);
       expect(compras).toEqual(ListarMotosMock.default);
     });
     const req = httpMock.expectOne(apiEndPointMotos);

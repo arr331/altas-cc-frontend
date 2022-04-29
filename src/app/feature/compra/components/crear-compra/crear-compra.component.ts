@@ -58,7 +58,7 @@ export class CrearCompraComponent implements OnChanges {
   }
 
   private traerCotizacion(): void {
-    this.compraService.traerInformacionDePago(this.moto.id).subscribe(respuesta => {
+    this.compraService.traerCotizacion(this.moto.id).subscribe(respuesta => {
       this.cotizacion = respuesta.valor;
       this.valorFinalAPagar = this.cotizacion.valorFinal;
       this.construirFormulario();

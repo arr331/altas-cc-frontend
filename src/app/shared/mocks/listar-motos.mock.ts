@@ -23,6 +23,17 @@ export class ListarMotosMock {
           "nombreImagen": "r1.png",
           "nombreMoto": "YZF-R1",
           "cantidad": 2
+        },
+        {
+          id: 3,
+          precio: 21000.0,
+          cc: 999,
+          marca: 'HONDA',
+          estado: 'I',
+          descuento: 0.0,
+          nombreImagen: 'cbr.png',
+          nombreMoto: 'CBR 1000RR',
+          cantidad: 1
         }
       ];
 } 

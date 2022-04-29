@@ -32,13 +32,11 @@ describe('CrearCompraComponent', () => {
 
     fixture = TestBed.createComponent(CrearCompraComponent);
     component = fixture.componentInstance;
-    component.moto = ListarMotosMock.default[1];
+    component.moto = ListarMotosMock.default[2];
     compraService = TestBed.inject(CompraService);
-    spyOn(compraService, 'traerInformacionDePago').and.returnValue(of({valor:ListarComprasMock.cotizacion}))
-    spyCrear = spyOn(compraService, 'guardar').and.returnValue(
-      of({ valor: '2022-7' })
-    );
-    
+    spyOn(compraService, 'traerCotizacion').and.returnValue(of({ valor: ListarComprasMock.cotizacion }))
+    spyCrear = spyOn(compraService, 'guardar').and.returnValue(of({ valor: '2022-7' }));
+    component.ngOnChanges();
     fixture.detectChanges();
   });
 
@@ -47,67 +45,22 @@ describe('CrearCompraComponent', () => {
   });
 
   it('Formulario inválido cuando se inicia', () => {
-    component.cotizacion = {
-      moto: {
-        id: 3,
-        precio: 21000.0,
-        cc: 999,
-        marca: 'HONDA',
-        estado: 'I',
-        descuento: 0.0,
-        nombreImagen: 'cbr.png',
-        nombreMoto: 'CBR 1000RR',
-        cantidad: 1
-      },
-      valorSinDescuento: 21000.0,
-      valorFinal: 21420.0,
-      impuesto: 2.0,
-      descuentoLunes: 0.0,
-      descuentoFinDeSemana: 0.0
-    };
-    component.moto = {
-      id: 3,
-      precio: 21000.0,
-      cc: 999,
-      marca: 'HONDA',
-      estado: 'I',
-      descuento: 0.0,
-      nombreImagen: 'cbr.png',
-      nombreMoto: 'CBR 1000RR',
-      cantidad: 1
-    }
-    component.construirFormulario();
     expect(component.compraFormulario.valid).toBeFalse();
   });
 
+  it('Formulario válido cuando se le agregue información', () => {
+    component.compraFormulario.patchValue({ cedula: '1040048300', nombreCompleto: 'Adrian R', abono: 12000 });
+    expect(component.compraFormulario.valid).toBeTrue();
+  });
+
   it('Debería crear una compra', () => {
-    const compraForm = {
-      cedula: '1040048300',
-      nombreCompleto: 'Adrian R',
-      abono: 12000
-    };
-    component.cotizacion = {
-      moto: {
-        id: 3,
-        precio: 21000.0,
-        cc: 999,
-        marca: 'HONDA',
-        estado: 'I',
-        descuento: 0.0,
-        nombreImagen: 'cbr.png',
-        nombreMoto: 'CBR 1000RR',
-        cantidad: 1
-      },
-      valorSinDescuento: 21000.0,
-      valorFinal: 21420.0,
-      impuesto: 2.0,
-      descuentoLunes: 0.0,
-      descuentoFinDeSemana: 0.0
-    };
-    component.construirFormulario();
-    component.compraFormulario.patchValue(compraForm);
+    component.compraFormulario.patchValue({ cedula: '1040048300', nombreCompleto: 'Adrian R', abono: 12000 });
     component.guardar();
     expect(spyCrear).toHaveBeenCalled();
+  });
+
+  it('Debería traer una cotización', () => {
+    expect(component.cotizacion).toEqual(ListarComprasMock.cotizacion);
   });
 
 });

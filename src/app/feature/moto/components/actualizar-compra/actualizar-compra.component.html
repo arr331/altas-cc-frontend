@@ -44,11 +44,11 @@
                 </ng-template>
                 <hr>
                 <button *ngIf="compra && compra.estado === 'I'" type="button"
-                    class="btn btn-sm btn-success float-end px-4" (click)="completarCompra()"> <i
-                        class="fas fa-check-circle"></i> Pagar</button>
+                    class="btn btn-sm btn-success float-end px-4" (click)="completarCompra()"> <span
+                        class="fas fa-check-circle"></span> Pagar</button>
                 <button *ngIf="compra && compra.estado === 'C'" type="button"
-                    class="btn btn-sm btn-success float-end px-4" (click)="resetear()"> <i
-                        class="fas fa-check-circle"></i> Buscar otra</button>
+                    class="btn btn-sm btn-success float-end px-4" (click)="resetear()"> <span
+                        class="fas fa-check-circle"></span> Buscar otra</button>
                 <button type="button" class="btn btn-sm btn-secondary px-4" data-bs-dismiss="modal"
                     (click)="resetear()"><span class="fas fa-times-circle"></span> Cerrar</button>
             </div>

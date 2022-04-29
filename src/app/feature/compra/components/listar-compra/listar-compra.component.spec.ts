@@ -36,4 +36,9 @@ describe('ListarCompraComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Debería traer listado de compras', () => {
+    component.ngOnInit();
+    expect(component.listaCompras.length).toEqual(3);
+  });
 });

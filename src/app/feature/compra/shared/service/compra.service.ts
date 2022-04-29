@@ -37,7 +37,7 @@ export class CompraService {
       this.http.optsName('crear/actualizar compras'));
   }
 
-  traerInformacionDePago(idMoto: number): Observable<Respuesta<Cotizacion>> {
+  traerCotizacion(idMoto: number): Observable<Respuesta<Cotizacion>> {
     return this.http.doGet<Respuesta<Cotizacion>>(`${environment.urlApi}compras/cotizacion/${idMoto}`,
       this.http.optsName('consultar cotización'));
   }
