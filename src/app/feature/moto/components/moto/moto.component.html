@@ -1,24 +1,36 @@
 <div class="background p-3">
-    <div class="alert alert-secondary" role="alert" *ngIf="trmData && viewTrm">
-        El <strong>TRM</strong> vigente para hoy es: <strong>{{trmData.unidad}} {{trmData.valor | currency}}</strong>
-        <button class="btn btn-sm btn-dark float-end" (click)="viewTrm = false"><span class="fas fa-eye-slash"></span>
-            Ocultar</button>
-        <button class="btn btn-sm btn-success float-end me-4" (click)="obtenerTrm()"><span class="fas fa-sync"></span>
-            Refrescar</button>
+    <div class="alert alert-secondary pb-0" role="alert" *ngIf="trmData && viewTrm">
+        <div class="row">
+            <div class="col-lg-8 col-md-6 mb-3">
+                El <strong>TRM</strong> vigente para hoy es: <strong>{{trmData.unidad}} {{trmData.valor |
+                    currency}}</strong>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-6 mb-3">
+                <button class="btn btn-sm btn-success col-12" (click)="obtenerTrm()"><span class="fas fa-sync"></span>
+                    Refrescar</button>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-6 mb-3">
+                <button class="btn btn-sm btn-dark col-12" (click)="viewTrm = false"><span class="fas fa-eye-slash"></span>
+                    Ocultar</button>
+            </div>
+        </div>
     </div>
-    <div class="row">
-        <div class="col-md-8">
+    <div class="row pe-4">
+        <div class="col-lg-7 col-md-5 mb-2">
             <h4 class="text-white" id="titulo-motos">Catálogo de motos</h4>
         </div>
-        <div class="col-md-4">
-            <button type="button" class="btn btn-s btn-primary float-end ms-4" data-bs-toggle="modal"
-                data-bs-target="#actualizarCompraModal" id="boton-codigo">Tengo un código</button>
-            <button *ngIf="!viewTrm" type="button" class="btn btn-s btn-success float-end" id="boton-trm"
+        <div class="col-lg-2 col-md-3 col-sm-6 mb-3">
+            <button *ngIf="!viewTrm" type="button" class="btn btn-sm btn-success col-12" id="boton-trm"
                 (click)="viewTrm = true"><span class="fas fa-eye"></span> Ver TRM</button>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <button type="button" class="btn btn-sm btn-primary col-12" data-bs-toggle="modal"
+                data-bs-target="#actualizarCompraModal" id="boton-codigo"><span class="fas fa-check-circle"></span>
+                Tengo un código</button>
         </div>
     </div>
     <hr>
-    <div class="flex-box py-2" *ngIf="listaMotos">
+    <div class="flex-box pb-2" *ngIf="listaMotos">
         <div class="card-content" *ngFor="let moto of listaMotos; let i = index" id="lista-motos">
 
             <ng-container *ngIf="moto.cantidad > 0; else agotado">

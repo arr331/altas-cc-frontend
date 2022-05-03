@@ -25,12 +25,12 @@
                         <img src="assets/images/{{moto.nombreImagen}}" alt="Imagen moto" width="40%">
                     </div>
                     <div class="row" *ngIf="compra.estado === 'I'; else completada">
-                        <div class="col">
+                        <div class="col-sm-6">
                             <h6 class="text-secondary">Valor total: <span class="text-dark">{{compra.valorTotal |
                                     currency}}</span>
                             </h6>
                         </div>
-                        <div class="col">
+                        <div class="col-sm-6">
                             <h6 class="text-secondary">Valor restante: <span class="text-dark">
                                     {{compra.abono | currency}}</span>
                             </h6>

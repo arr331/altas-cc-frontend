@@ -15,7 +15,7 @@ export class MotoComponent implements OnInit {
   listaMotos: Moto[];
   moto: Moto;
   trmData: TrmRespuesta;
-  viewTrm: boolean;
+  viewTrm: boolean = true;
 
   constructor(private motoService: MotoService, private trmService: TrmService) { }
 

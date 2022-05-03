@@ -1,26 +1,28 @@
 <div class="container mt-3">
     <h3>Listado de motos</h3>
     <hr>
-    <table class="table table-striped" *ngIf="listaMotos" aria-describedby="Tabla motos">
-        <thead>
-            <tr>
-                <th scope="col">Marca</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">CC</th>
-                <th scope="col">Precio</th>
-                <th scope="col" class="text-center">Descuento</th>
-                <th scope="col" class="text-center">Estado</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let moto of listaMotos" id="tr-motos">
-                <td>{{moto.marca}}</td>
-                <td>{{moto.nombreMoto}}</td>
-                <td>{{moto.cc}}</td>
-                <td>{{moto.precio | currency}}</td>
-                <td class="text-center">{{moto.descuento}} %</td>
-                <td class="text-center">{{moto.estado === 'A' ? 'Activa' : 'Inactiva'}}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table table-striped" *ngIf="listaMotos" aria-describedby="Tabla motos">
+            <thead>
+                <tr>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">CC</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col" class="text-center">Descuento</th>
+                    <th scope="col" class="text-center">Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let moto of listaMotos" id="tr-motos">
+                    <td>{{moto.marca}}</td>
+                    <td>{{moto.nombreMoto}}</td>
+                    <td>{{moto.cc}}</td>
+                    <td>{{moto.precio | currency}}</td>
+                    <td class="text-center">{{moto.descuento}} %</td>
+                    <td class="text-center">{{moto.estado === 'A' ? 'Activa' : 'Inactiva'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

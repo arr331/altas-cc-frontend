@@ -3,49 +3,49 @@
     <hr>
     <form [formGroup]="motoFormulario" class="was-validated">
         <div class="row">
-            <div class="col-5">
+            <div class="col-lg-5 col-sm-6">
                 <label class="floating">
                     <input type="text" class="form-control" placeholder="Ingresar el nombre de la moto" id="nombreMoto"
                         formControlName="nombreMoto" required>
                     <span>Nombre de la moto</span>
                 </label>
             </div>
-            <div class="col-5">
+            <div class="col-lg-5 col-sm-6">
                 <label class="floating">
                     <input type="text" class="form-control" placeholder="Ingresar la marca de la moto" id="marca"
                         formControlName="marca" required>
                     <span>Marca</span>
                 </label>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-3 col-sm-6">
                 <label class="floating">
                     <input type="number" class="form-control" placeholder="Cc de la moto" id="cc" formControlName="cc"
                         required>
                     <span>Cilindraje</span>
                 </label>
             </div>
-            <div class="col-4">
+            <div class="col-lg-4 col-md-5 col-sm-6">
                 <label class="floating">
                     <input type="text" class="form-control" placeholder="Ingresar el nombre de la foto"
                         id="nombreImagen" formControlName="nombreImagen" required>
                     <span>Nombre imagen</span>
                 </label>
             </div>
-            <div class="col-3">
+            <div class="col-lg-3 col-md-4 col-sm-6">
                 <label class="floating">
                     <input type="number" class="form-control" placeholder="Ingresar el precio en $USD" id="precio"
                         formControlName="precio" required>
                     <span>Precio</span>
                 </label>
             </div>
-            <div class="col-3">
+            <div class="col-lg-3 col-md-4 col-sm-6">
                 <label class="floating">
                     <input type="number" class="form-control" placeholder="Ingresar el % del descuento" id="descuento"
                         formControlName="descuento" required>
                     <span>Descuento</span>
                 </label>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-md-4 col-sm-6">
                 <label class="floating">
                     <select class="form-control" id="estado" formControlName="estado" required>
                         <option value="A">Activo</option>
@@ -54,7 +54,7 @@
                     <span>Estado</span>
                 </label>
             </div>
-            <div class="col-4">
+            <div class="col-lg-4 col-md-4 col-sm-6">
                 <label class="floating">
                     <input type="number" class="form-control" placeholder="Ingresar la cantidad de unidades"
                         id="cantidad" formControlName="cantidad" required>
@@ -64,5 +64,6 @@
         </div>
     </form>
     <hr>
-    <button type="button" class="btn btn-success col-3 float-end" id="guardar-moto" (click)="guardar()">Guardar moto</button>
+    <button type="button" class="btn btn-success col-xl-3 col-lg-4 col-md-5 col-12 float-end mb-3" id="guardar-moto"
+        (click)="guardar()">Guardar moto</button>
 </div>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Loading } from '@core/loading/loading';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +7,10 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  loading: Observable<boolean>;
+  loading: boolean;
   title = 'altas-cc';
 
   ngOnInit(): void {
-    this.loading = Loading.state;
+    setTimeout(() => {Loading.state.subscribe(state => this.loading = state)}, 200);
   }
 }

@@ -58,10 +58,12 @@ export class CrearCompraComponent implements OnChanges {
   }
 
   private traerCotizacion(): void {
+    Loading.state.next(true);
     this.compraService.traerCotizacion(this.moto.id).subscribe(respuesta => {
       this.cotizacion = respuesta.valor;
       this.valorFinalAPagar = this.cotizacion.valorFinal;
       this.construirFormulario();
+      Loading.state.next(false);
     }, error => {
       Loading.state.next(false);
       this.manejadorError.handleError(error);

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Loading } from '@core/loading/loading';
 import { Compra } from '../../shared/modelo/compra';
 import { CompraService } from '../../shared/service/compra.service';
 
@@ -12,8 +13,10 @@ export class ListarCompraComponent implements OnInit {
   constructor(private compraService: CompraService) { }
 
   ngOnInit(): void {
+    Loading.state.next(true);
     this.compraService.traerTodas().subscribe(respuesta => {
       this.listaCompras = respuesta;
+      Loading.state.next(false);
     });
   }
 }
