@@ -4,8 +4,7 @@ import { CompraService } from '../../shared/service/compra.service';
 
 @Component({
   selector: 'app-listar-compra',
-  templateUrl: './listar-compra.component.html',
-  styleUrls: ['./listar-compra.component.scss']
+  templateUrl: './listar-compra.component.html'
 })
 export class ListarCompraComponent implements OnInit {
   listaCompras: Compra[];

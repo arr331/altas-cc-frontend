@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   loading: Observable<boolean>;
-  title = 'app-base';
+  title = 'altas-cc';
 
   ngOnInit(): void {
     this.loading = Loading.state;

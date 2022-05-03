@@ -24,12 +24,12 @@ export class CrearMotoComponent implements OnInit {
     this.motoFormulario = this.formBuilder.group({
       nombreMoto: [undefined, Validators.required],
       marca: [undefined, Validators.required],
-      cc: [undefined, Validators.required],
-      precio: [undefined, Validators.required],
-      descuento: [0, Validators.required],
+      cc: [undefined, [Validators.required, Validators.min(350)]],
+      precio: [undefined, [Validators.required, Validators.min(1000)]],
+      descuento: [0, [Validators.required, Validators.min(0)]],
       nombreImagen: ['.png', Validators.required],
       estado: ['A', Validators.required],
-      cantidad: [undefined, Validators.required],
+      cantidad: [undefined, [Validators.required, Validators.min(0)]],
     });
   }
 

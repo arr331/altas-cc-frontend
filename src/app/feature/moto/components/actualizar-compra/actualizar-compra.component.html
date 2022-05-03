@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="container p-3">
                 <ng-container *ngIf="!compra">
-                    <h5>Buscar por código</h5>
+                    <h5 id="titulo-buscar-codigo">Buscar por código</h5>
                     <hr>
                 </ng-container>
                 <div class="row mt-4" *ngIf="!compra; else actualizar">
@@ -16,7 +16,7 @@
                     </div>
                     <div class="col-sm-4">
                         <button type="button" class="btn btn-sm col-12 btn-success" [disabled]="codigoCompra.invalid"
-                            (click)="buscar()"><span class="fas fa-search"></span> Buscar</button>
+                            (click)="buscar()" id="boton-buscar-codigo"><span class="fas fa-search"></span> Buscar</button>
                     </div>
                 </div>
                 <ng-template #actualizar>
@@ -43,7 +43,7 @@
                     </ng-template>
                 </ng-template>
                 <hr>
-                <button *ngIf="compra && compra.estado === 'I'" type="button"
+                <button *ngIf="compra && compra.estado === 'I'" type="button" id="boton-actualizar-compra"
                     class="btn btn-sm btn-success float-end px-4" (click)="completarCompra()"> <span
                         class="fas fa-check-circle"></span> Pagar</button>
                 <button *ngIf="compra && compra.estado === 'C'" type="button"
