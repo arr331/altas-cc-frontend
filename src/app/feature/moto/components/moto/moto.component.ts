@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Loading } from '@core/loading/loading';
 import { TrmRespuesta } from '@core/modelo/trm-respuesta';
-import { Offcanvas } from '@shared/utlidades/offcanvas';
+import { Offcanvas } from '@shared/utlidades/offcanvas.util';
 import { Moto } from '../../shared/modelo/moto';
 import { MotoService } from '../../shared/service/moto.service';
 import { TrmService } from '../../shared/service/trm.service';

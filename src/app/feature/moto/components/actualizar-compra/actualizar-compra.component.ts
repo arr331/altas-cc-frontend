@@ -3,7 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { Alertas } from '@core/alertas/alertas';
 import { ManejadorError } from '@core/interceptor/manejador-error';
 import { Loading } from '@core/loading/loading';
-import { Modal } from '@shared/utlidades/modal';
+import { Modal } from '@shared/utlidades/modal.util';
 import { Compra } from 'src/app/feature/compra/shared/modelo/compra';
 import { CompraService } from 'src/app/feature/compra/shared/service/compra.service';
 import { Moto } from '../../shared/modelo/moto';

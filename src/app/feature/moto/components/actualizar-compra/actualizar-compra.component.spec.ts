@@ -6,7 +6,7 @@ import { ManejadorError } from '@core/interceptor/manejador-error';
 import { HttpService } from '@core/services/http.service';
 import { ListarComprasMock } from '@shared/mocks/listar-compras.mock';
 import { ListarMotosMock } from '@shared/mocks/listar-motos.mock';
-import { Modal } from '@shared/utlidades/modal';
+import { Modal } from '@shared/utlidades/modal.util';
 import { of } from 'rxjs';
 import { CompraService } from 'src/app/feature/compra/shared/service/compra.service';
 import { MotoService } from '../../shared/service/moto.service';

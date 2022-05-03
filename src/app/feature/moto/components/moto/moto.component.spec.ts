@@ -5,7 +5,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpService } from '@core/services/http.service';
 import { ListarMotosMock } from '@shared/mocks/listar-motos.mock';
-import { Offcanvas } from '@shared/utlidades/offcanvas';
+import { Offcanvas } from '@shared/utlidades/offcanvas.util';
 import { of } from 'rxjs';
 import { MotoService } from '../../shared/service/moto.service';
 import { TrmService } from '../../shared/service/trm.service';
