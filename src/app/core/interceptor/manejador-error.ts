@@ -1,5 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorHandler, Injectable } from '@angular/core';
+import { Alertas } from '@core/alertas/alertas';
+import { Loading } from '@core/loading/loading';
 import { environment } from '../../../environments/environment';
 import { HTTP_ERRORES_CODIGO } from './http-codigo-error';
 
@@ -7,9 +9,11 @@ import { HTTP_ERRORES_CODIGO } from './http-codigo-error';
 export class ManejadorError implements ErrorHandler {
   constructor() {}
 
-  handleError(error: string | Error): void {
+  handleError(error: string | Error | any): void {
     const mensajeError = this.mensajePorDefecto(error);
     this.imprimirErrorConsola(mensajeError);
+    Loading.state.next(false); 
+    Alertas.error('Atención', `${this.obtenerErrorHttpCode(error.status)} - ${error.error?.mensaje || 'Por favor intena de nuevo'}`)
   }
 
   private mensajePorDefecto(error) {

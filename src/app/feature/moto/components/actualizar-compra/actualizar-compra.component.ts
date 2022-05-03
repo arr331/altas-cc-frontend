@@ -32,15 +32,11 @@ export class ActualizarCompraComponent implements OnInit {
   buscar(): void {
     if (this.codigoCompra.valid) {
       Loading.state.next(true);
-      this.compraService.traerPorCodigo(this.codigoCompra.value).subscribe(respuesta => {  
+      this.compraService.traerPorCodigo(this.codigoCompra.value).subscribe(respuesta => {
         this.compra = respuesta;
         this.moto = this.listaMotos.find(moto => moto.id == respuesta.idMoto);
         Loading.state.next(false);
-      }, error => {
-        Loading.state.next(false);
-        this.manejadorError.handleError(error);
-        Alertas.error('Atención', `${this.manejadorError.obtenerErrorHttpCode(error.status)} - ${error.error?.mensaje || 'Por favor intena de nuevo'}`)
-      });
+      }, error => this.manejadorError.handleError(error));
     }
   }
 
@@ -51,11 +47,7 @@ export class ActualizarCompraComponent implements OnInit {
       this.resetear();
       Modal.hide('actualizarCompraModal');
       Alertas.exito('¡Felicitaciones!', `Disfruta tu nueva moto`);
-    }, error => {
-      Loading.state.next(false);
-      this.manejadorError.handleError(error);
-      Alertas.error('Atención', `${this.manejadorError.obtenerErrorHttpCode(error.status)} - ${error.error?.mensaje || 'Por favor intena de nuevo'}`)
-    });
+    }, error => this.manejadorError.handleError(error));
   }
 
   resetear(): void {

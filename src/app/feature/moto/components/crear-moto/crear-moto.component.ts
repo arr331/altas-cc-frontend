@@ -41,11 +41,7 @@ export class CrearMotoComponent implements OnInit {
         this.construirFormulario();
         Loading.state.next(false);
         Alertas.exito('¡Muy bien!', `Moto creada exitosamente`);
-      }, error => {
-        Loading.state.next(false);
-        this.manejadorError.handleError(error);
-        Alertas.error('Atención', `${this.manejadorError.obtenerErrorHttpCode(error.status)} - ${error.error?.mensaje || 'Por favor intena de nuevo'}`)
-      });
+      }, error => this.manejadorError.handleError(error));
     } else {
       Alertas.informativo('¡Atención!', 'Por favor completa bien el formulario');
     }

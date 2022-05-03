@@ -47,11 +47,7 @@ export class CrearCompraComponent implements OnChanges {
       this.compraService.guardar(compraAGuardar).subscribe(respuesta => {
         Loading.state.next(false);
         Alertas.exito('¡Felicitaciones!', `Disfruta tu nueva moto. El código de la moto es: ${respuesta.valor}`);
-      }, error => {
-        Loading.state.next(false);
-        this.manejadorError.handleError(error);
-        Alertas.error('Atención', `${this.manejadorError.obtenerErrorHttpCode(error.status)} - ${error.error?.mensaje || 'Por favor intena de nuevo'}`)
-      });
+      }, error => this.manejadorError.handleError(error));
     } else {
       Alertas.informativo('¡Atención!', 'Por favor completa bien el formulario');
     }
@@ -64,11 +60,7 @@ export class CrearCompraComponent implements OnChanges {
       this.valorFinalAPagar = this.cotizacion.valorFinal;
       this.construirFormulario();
       Loading.state.next(false);
-    }, error => {
-      Loading.state.next(false);
-      this.manejadorError.handleError(error);
-      Alertas.error('Atención', `${this.manejadorError.obtenerErrorHttpCode(error.status)} - ${error.error?.mensaje || 'Por favor intena de nuevo'}`)
-    });
+    }, error => this.manejadorError.handleError(error));
   }
 
 }

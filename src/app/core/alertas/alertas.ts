@@ -13,10 +13,6 @@ export class Alertas {
         return this.generate('info', titulo, texto, textoConfirmacion);
     }
 
-    static interrogacion(titulo: string, texto?: string, textoConfirmacion?: string): Promise<SweetAlertResult> {
-        return this.generate('question', titulo, texto, textoConfirmacion);
-    }
-
     private static generate(icon: SweetAlertIcon, titulo: string, texto?: string, textoConfirmacion?: string): Promise<SweetAlertResult> {
         return Swal.fire({
             icon,
