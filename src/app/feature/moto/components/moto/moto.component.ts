@@ -15,7 +15,7 @@ export class MotoComponent implements OnInit {
   listaMotos: Moto[];
   moto: Moto;
   trmData: TrmRespuesta;
-  viewTrm: boolean = true;
+  viewTrm: boolean;
 
   constructor(private motoService: MotoService, private trmService: TrmService) { }
 
@@ -35,7 +35,7 @@ export class MotoComponent implements OnInit {
 
   obtenerTrm(): void {
     this.trmData = undefined;
-    this.trmService.vigenciaHoy().then(respuesta =>
+    this.trmService.vigenciaHoy().subscribe(respuesta =>
       this.trmData = respuesta[respuesta.length - 1]
     );
   }
