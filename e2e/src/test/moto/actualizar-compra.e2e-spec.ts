@@ -19,7 +19,7 @@ describe('Página actualizar compra', () => {
         expect(paginaActualizarCompra.getSweetAlertTitle()).toEqual('Atención');
         paginaActualizarCompra.clickAlertConfirm();
     });
-    
+
     it('Debería actualizar una compra', () => {
         paginaMoto.navigateToMoto();
         paginaMoto.clickBotonCodigo();

@@ -11,6 +11,6 @@ export class AppComponent implements OnInit {
   title = 'altas-cc';
 
   ngOnInit(): void {
-    setTimeout(() => {Loading.state.subscribe(state => this.loading = state)}, 200);
+    setTimeout(() => Loading.state.subscribe(state => this.loading = state), 200);
   }
 }

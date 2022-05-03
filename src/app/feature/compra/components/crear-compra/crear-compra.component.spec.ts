@@ -34,7 +34,7 @@ describe('CrearCompraComponent', () => {
     component = fixture.componentInstance;
     component.moto = ListarMotosMock.default[2];
     compraService = TestBed.inject(CompraService);
-    spyOn(compraService, 'traerCotizacion').and.returnValue(of({ valor: ListarComprasMock.cotizacion }))
+    spyOn(compraService, 'traerCotizacion').and.returnValue(of({ valor: ListarComprasMock.cotizacion }));
     spyCrear = spyOn(compraService, 'guardar').and.returnValue(of({ valor: '2022-7' }));
     component.ngOnChanges();
     fixture.detectChanges();

@@ -10,13 +10,13 @@ export class PaginaCrearCompra {
     private sweetalertConfirmButton = element(by.className('swal2-confirm'));
 
     async clickBotonGuardarCompra(): Promise<void> {
-        await this.botonGuardarCompra.click(); 
+        await this.botonGuardarCompra.click();
     }
 
     async ingresarNombreCompleto(nombreCompleto: string): Promise<void> {
         await this.inputNombreCompleto.sendKeys(nombreCompleto);
     }
-    
+
     async ingresarCedula(cedula: string): Promise<void> {
         await this.inputCedula.sendKeys(cedula);
     }
@@ -32,5 +32,4 @@ export class PaginaCrearCompra {
     async clickAlertConfirm(): Promise<void> {
         await this.sweetalertConfirmButton.click();
     }
-    
 }

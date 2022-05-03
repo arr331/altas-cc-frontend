@@ -24,7 +24,7 @@ export class CrearCompraComponent implements OnChanges {
   ngOnChanges(): void {
     if (this.moto) {
       this.traerCotizacion();
-      this.esIgualAlTotal = true
+      this.esIgualAlTotal = true;
     }
   }
 

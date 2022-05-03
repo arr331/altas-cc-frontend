@@ -16,7 +16,7 @@ describe('ListarCompraComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListarCompraComponent ],
+      declarations: [ListarCompraComponent],
       imports: [
         CommonModule,
         HttpClientModule,
@@ -25,11 +25,11 @@ describe('ListarCompraComponent', () => {
       ],
       providers: [CompraService, HttpService]
     })
-    .compileComponents();
+      .compileComponents();
     fixture = TestBed.createComponent(ListarCompraComponent);
     component = fixture.componentInstance;
     compraService = TestBed.inject(CompraService);
-    spyOn(compraService, 'traerTodas').and.returnValue(of(ListarComprasMock.default))
+    spyOn(compraService, 'traerTodas').and.returnValue(of(ListarComprasMock.default));
     fixture.detectChanges();
   });
 

@@ -9,5 +9,5 @@ export interface Compra {
     abono: number;
     codigo: string;
     estado: string;
-    cotizacion?: Cotizacion
+    cotizacion?: Cotizacion;
 }

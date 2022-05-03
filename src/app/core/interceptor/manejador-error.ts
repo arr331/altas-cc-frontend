@@ -7,13 +7,13 @@ import { HTTP_ERRORES_CODIGO } from './http-codigo-error';
 
 @Injectable()
 export class ManejadorError implements ErrorHandler {
-  constructor() {}
+  constructor() { }
 
   handleError(error: string | Error | any): void {
     const mensajeError = this.mensajePorDefecto(error);
     this.imprimirErrorConsola(mensajeError);
-    Loading.state.next(false); 
-    Alertas.error('Atención', `${this.obtenerErrorHttpCode(error.status)} - ${error.error?.mensaje || 'Por favor intena de nuevo'}`)
+    Loading.state.next(false);
+    Alertas.error('Atención', `${this.obtenerErrorHttpCode(error.status)} - ${error.error?.mensaje || 'Por favor intena de nuevo'}`);
   }
 
   private mensajePorDefecto(error) {

@@ -36,7 +36,7 @@ describe('Página crear moto', () => {
         expect(paginaCrearMoto.getSweetAlertTitle()).toEqual('¡Muy bien!');
         paginaCrearMoto.clickAlertConfirm();
     });
-    
+
     it('No debería crear una moto por campos inválidos', () => {
         paginaCrearMoto.clickBotonGuardarMoto();
         expect(paginaCrearMoto.getSweetAlertTitle()).toEqual('¡Atención!');

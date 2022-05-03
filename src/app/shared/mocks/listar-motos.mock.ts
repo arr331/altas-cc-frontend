@@ -36,4 +36,4 @@ export class ListarMotosMock {
       cantidad: 1
     }
   ];
-} 
+}

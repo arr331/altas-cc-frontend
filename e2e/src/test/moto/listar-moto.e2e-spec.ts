@@ -6,7 +6,7 @@ describe('Página listar moto', () => {
     beforeEach(() => {
         paginaListarMoto = new PaginaListarMoto();
     });
-    
+
     it('Debería listar las motos', () => {
         paginaListarMoto.navigateToListar();
         expect(paginaListarMoto.contarMotos()).toBeGreaterThan(3);

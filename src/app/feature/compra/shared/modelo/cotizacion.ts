@@ -1,4 +1,4 @@
-import { Moto } from "src/app/feature/moto/shared/modelo/moto";
+import { Moto } from 'src/app/feature/moto/shared/modelo/moto';
 
 export interface Cotizacion {
     moto: Moto;

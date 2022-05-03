@@ -52,6 +52,6 @@ export class ListarComprasMock {
     impuesto: 2.0,
     descuentoLunes: 0.0,
     descuentoFinDeSemana: 0.0
-  }
+  };
 
-} 
+}

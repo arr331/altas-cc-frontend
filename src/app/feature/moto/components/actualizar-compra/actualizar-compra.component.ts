@@ -21,7 +21,7 @@ export class ActualizarCompraComponent implements OnInit {
   listaMotos: Moto[];
 
   constructor(private compraService: CompraService, protected manejadorError: ManejadorError,
-    private motoService: MotoService) { }
+              private motoService: MotoService) { }
 
   ngOnInit(): void {
     this.motoService.traerTodas().subscribe(respuesta => {

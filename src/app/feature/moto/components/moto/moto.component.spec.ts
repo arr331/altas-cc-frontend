@@ -49,8 +49,7 @@ describe('MotoComponent', () => {
     trmService = TestBed.inject(TrmService);
     spyOn(motoService, 'traerTodas').and.returnValue(of(ListarMotosMock.default));
     spyOn(trmService, 'vigenciaHoy').and.returnValue(of(listaTRM));
-    component.ngOnInit();
-    
+    component.ngOnInit();    
     fixture.detectChanges();
   });
 
