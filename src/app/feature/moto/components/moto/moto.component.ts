@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Loading } from '@core/loading/loading';
 import { TrmRespuesta } from '@core/modelo/trm-respuesta';
 import { Offcanvas } from '@shared/utlidades/offcanvas';
 import { Moto } from '../../shared/modelo/moto';
@@ -19,8 +20,10 @@ export class MotoComponent implements OnInit {
   constructor(private motoService: MotoService, private trmService: TrmService) { }
 
   ngOnInit(): void {
+    Loading.state.next(true);
     this.motoService.traerTodas().subscribe(respuesta => {
       this.listaMotos = respuesta;
+      Loading.state.next(false);
     });
     this.obtenerTrm();
   }

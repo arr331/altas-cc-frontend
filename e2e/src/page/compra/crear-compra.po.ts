@@ -10,7 +10,7 @@ export class PaginaCrearCompra {
     private sweetalertConfirmButton = element(by.className('swal2-confirm'));
 
     async clickBotonGuardarCompra(): Promise<void> {
-        await this.botonGuardarCompra.click();
+        await this.botonGuardarCompra.click(); 
     }
 
     async ingresarNombreCompleto(nombreCompleto: string): Promise<void> {

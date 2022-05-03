@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, DatePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 import { MotoRoutingModule } from './moto-routing.module';
 import { MotoComponent } from './components/moto/moto.component';
@@ -31,6 +31,6 @@ import { TrmService } from './shared/service/trm.service';
     CrearCompraModule,
     ReactiveFormsModule
   ],
-  providers: [MotoService, CompraService, TrmService, DatePipe, ManejadorError, HttpClient, HttpService]
+  providers: [MotoService, CompraService, TrmService, ManejadorError, HttpClient, HttpService]
 })
 export class MotoModule { }

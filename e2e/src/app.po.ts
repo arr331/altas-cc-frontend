@@ -5,7 +5,7 @@ export class AppPage {
     return browser.get(browser.baseUrl) as Promise<any>;
   }
 
-  getTitleText() {
-    return element(by.id('title')).getText() as Promise<string>;
+  async getTitleText() {
+    return await element(by.id('title')).getText();
   }
 }

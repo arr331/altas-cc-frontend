@@ -19,7 +19,7 @@
     </div>
     <hr>
     <div class="flex-box py-2" *ngIf="listaMotos">
-        <div class="card-content" *ngFor="let moto of listaMotos" id="lista-motos">
+        <div class="card-content" *ngFor="let moto of listaMotos; let i = index" id="lista-motos">
 
             <ng-container *ngIf="moto.cantidad > 0; else agotado">
                 <div class="info" *ngIf="moto.descuento > 0;">- {{moto.descuento}} %</div>
@@ -36,7 +36,7 @@
             <span class="text-white me-3 fs-5">{{moto.precio * ((100 - moto.descuento) / 100) | currency}}</span>
             <span *ngIf="moto.descuento > 0" class="new-discount">{{moto.precio | currency}}</span>
 
-            <div *ngIf="moto.cantidad > 0" class="new-button" id="boton-abrir-compra" (click)="abrirCompra(moto)">
+            <div *ngIf="moto.cantidad > 0" class="new-button" id="boton-abrir-compra-{{i}}" (click)="abrirCompra(moto)">
                 Comprar</div>
         </div>
     </div>

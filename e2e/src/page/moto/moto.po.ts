@@ -1,9 +1,9 @@
 import { browser, by, element } from 'protractor';
 
 export class PaginaMoto {
-    private listaMotos = element.all(by.id('lista-motos'));
+    // private listaMotos = element.all(by.id('lista-motos'));
     private botonCodigo = element(by.id('boton-codigo'));
-    private botonAbrirCompra = element(by.id('boton-abrir-compra'));
+    private botonAbrirCompra = element(by.id('boton-abrir-compra-0'));
 
     navigateToMoto(): Promise<any> {
         return browser.get(browser.baseUrl) as Promise<any>;
@@ -18,11 +18,8 @@ export class PaginaMoto {
     }
 
     async clickBotonAbrirCompra(): Promise<void> {
+        browser.waitForAngular();
+        browser.actions().mouseMove(element(by.id('boton-abrir-compra-0'))).perform();
         await this.botonAbrirCompra.click();
-    }
-
-    async getListaMotos() {
-        await browser.waitForAngularEnabled(false);
-        return await this.listaMotos.get(0).click();
     }
 }
