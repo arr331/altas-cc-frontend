@@ -20,6 +20,7 @@ describe('ActualizarCompraComponent', () => {
   let motoService: MotoService;
   let spyTraerPorCodigo: jasmine.Spy;
   let spyActualizar: jasmine.Spy;
+  const CODIGO_EXISTENTE = '2022-3';
   
   const compra = ListarComprasMock.default[2];
 
@@ -59,15 +60,22 @@ describe('ActualizarCompraComponent', () => {
 
   it('Debería buscar por código una compra', () => {
     component.ngOnInit();
-    component.codigoCompra.setValue('2022-3');   
+    component.codigoCompra.setValue(CODIGO_EXISTENTE);   
     component.buscar();
     expect(component.compra).toEqual(compra);
     expect(component.moto).toEqual(ListarMotosMock.default[2]);
     expect(spyTraerPorCodigo).toHaveBeenCalledOnceWith(component.codigoCompra.value);
   });
 
+  // it('Debería buscar por código una compra y no encontrala', () => {
+  //   component.ngOnInit();
+  //   component.codigoCompra.setValue(`${CODIGO_EXISTENTE}333`);   
+  //   component.buscar();
+  //   // expect().toEqual();
+  // });
+
   it('Debería actualizar una compra', () => {
-    component.codigoCompra.setValue('2022-3');
+    component.codigoCompra.setValue(CODIGO_EXISTENTE);
     component.completarCompra();
     expect(spyActualizar).toHaveBeenCalled();
   });

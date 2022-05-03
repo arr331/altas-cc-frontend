@@ -62,19 +62,19 @@ export class HttpService {
     return this.http.put<T>(serviceUrl, ropts);
   }
 
-  public doDelete<R>(serviceUrl: string, opts?: Options): Observable<R> {
-    const ropts = this.createOptions(opts);
+  // public doDelete<R>(serviceUrl: string, opts?: Options): Observable<R> {
+  //   const ropts = this.createOptions(opts);
 
-    return this.http.delete<R>(serviceUrl, ropts);
-  }
+  //   return this.http.delete<R>(serviceUrl, ropts);
+  // }
 
-  public doGetParameters<T>(serviceUrl: string, parametros: HttpParams, opts?: Options): Observable<T> {
-    const ropts = this.createOptions(opts);
-    const options = parametros !== null ? {
-      headers: ropts.headers,
-      params: parametros
-    } as Options : ropts;
+  // public doGetParameters<T>(serviceUrl: string, parametros: HttpParams, opts?: Options): Observable<T> {
+  //   const ropts = this.createOptions(opts);
+  //   const options = parametros !== null ? {
+  //     headers: ropts.headers,
+  //     params: parametros
+  //   } as Options : ropts;
 
-    return this.http.get<T>(serviceUrl, options);
-  }
+  //   return this.http.get<T>(serviceUrl, options);
+  // }
 }
