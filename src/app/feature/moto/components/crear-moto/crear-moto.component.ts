@@ -14,7 +14,7 @@ export class CrearMotoComponent implements OnInit {
   motoFormulario: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private motoService: MotoService,
-    protected manejadorError: ManejadorError) { }
+              protected manejadorError: ManejadorError) { }
 
   ngOnInit(): void {
     this.construirFormulario();

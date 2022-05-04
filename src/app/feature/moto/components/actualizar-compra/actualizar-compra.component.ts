@@ -34,7 +34,7 @@ export class ActualizarCompraComponent implements OnInit {
       Loading.state.next(true);
       this.compraService.traerPorCodigo(this.codigoCompra.value).subscribe(respuesta => {
         this.compra = respuesta;
-        this.moto = this.listaMotos.find(moto => moto.id == respuesta.idMoto);
+        this.moto = this.listaMotos.find(moto => moto.id === respuesta.idMoto);
         Loading.state.next(false);
       }, error => this.manejadorError.handleError(error));
     }

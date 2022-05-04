@@ -58,7 +58,6 @@ export class HttpService {
 
   public doPut<T>(serviceUrl: string, opts?: Options): Observable<T> {
     const ropts = this.createOptions(opts);
-    
     return this.http.put<T>(serviceUrl, ropts);
   }
 

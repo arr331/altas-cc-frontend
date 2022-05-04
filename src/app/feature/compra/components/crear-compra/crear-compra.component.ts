@@ -35,7 +35,7 @@ export class CrearCompraComponent implements OnChanges {
       abono: [this.cotizacion.valorFinal, Validators.required],
     });
     this.compraFormulario.get('abono').valueChanges.subscribe((abono: number) => {
-      this.esIgualAlTotal = abono == this.cotizacion.valorFinal;
+      this.esIgualAlTotal = Number(abono) === this.cotizacion.valorFinal;
       this.valorFinalAPagar = this.esIgualAlTotal ? this.cotizacion.valorFinal : this.moto.precio;
     });
   }
@@ -54,12 +54,10 @@ export class CrearCompraComponent implements OnChanges {
   }
 
   private traerCotizacion(): void {
-    Loading.state.next(true);
     this.compraService.traerCotizacion(this.moto.id).subscribe(respuesta => {
       this.cotizacion = respuesta.valor;
       this.valorFinalAPagar = this.cotizacion.valorFinal;
       this.construirFormulario();
-      Loading.state.next(false);
     }, error => this.manejadorError.handleError(error));
   }
 
